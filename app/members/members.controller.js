@@ -21,7 +21,7 @@ console.log(req.body)
     const {firstname, lastname,  username, email, password} = req.body;
   
     if ( firstname && username && lastname  && password ){
-        if (  userName==="" || password===""  || firstname === "" || lastname === "" ){
+        if (  username==="" || password===""  || firstname === "" || lastname === "" ){
             res.status(400).send({
                 message:"Incorrect entry format"
             });
