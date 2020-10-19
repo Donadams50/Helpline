@@ -88,7 +88,7 @@ console.log(req.body)
 const {   password, username  } = req.body;
 
 if ( password && username ){
-    if ( password==="" || userName==="" ){
+    if ( password==="" || username==="" ){
         res.status(400).send({
             message:"Incorrect entry format"
         });
