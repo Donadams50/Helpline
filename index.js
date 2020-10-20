@@ -27,7 +27,7 @@ db.mongoose
   });
 
  require("./app/members/members.routes.js")(app)
- require("./app/sendmail/sendmail.routes.js")(app)
+ require("./app/featues/features.routes.js")(app)
 
 
 // Connect to port

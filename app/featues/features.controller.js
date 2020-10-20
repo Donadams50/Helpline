@@ -1,6 +1,9 @@
 const db = require("../mongoose");
-const Sendmails = db.emails;
-const sendemail = require('../helpers/emailhelper.js');
+const Securitys = db.securitys;
+const firstaids = db.firstaids
+const Legalhelps = db.legalhelps
+const Ambulances = db.ambulances
+
 exports.create = async(req, res) => {
     console.log(req.body)
     // let {myrefCode} = req.query;
@@ -55,6 +58,8 @@ exports.create = async(req, res) => {
     }
     };
 
+
+
 exports.sendMail = async (req, res) => {
     console.log(req.body)
     // let {myrefCode} = req.query;
@@ -103,18 +108,3 @@ exports.sendMail = async (req, res) => {
         });
     }
     };
-
-// process email one
-async function processEmail(emailFrom, emailTo, subject, link, link2, text){
-    try{
-      
-        // await delay();
-       const sendmail =  await sendemail.emailUtility(emailFrom, emailTo, subject, link, link2, text);
-     //  console.log(sendmail)
-        return sendmail
-    }catch(err){
-        console.log(err)
-        return err
-    }
-  
-  }

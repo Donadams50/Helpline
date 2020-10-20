@@ -2,7 +2,8 @@ module.exports = mongoose => {
     var schema = mongoose.Schema(
       {
         name: String,
-        email:Array,
+        phone:String,
+        location: String
         
       },
       { timestamps: true }
@@ -14,7 +15,7 @@ module.exports = mongoose => {
       return object;
     });
   
-    const Email = mongoose.model("email", schema);
-    return Email;
+    const Security = mongoose.model("security", schema);
+    return Security;
   };
   
