@@ -185,3 +185,64 @@ exports.addSecurity = async(req, res) => {
                     });
                 }
                 };
+
+                exports.getSecurity = async (req, res) => {
+                    try{
+                        let location = req.params.location;
+                        
+                            
+                            const getsecurity = await Securitys.find({location:location})
+                            res.status(200).send(getsecurity)
+                            console.log(getsecurity)
+                                          
+                       }catch(err){
+                           console.log(err)
+                           res.status(500).send({message:"Error while getting securities "})
+                       }
+                };
+
+                exports.getLegalHelp = async (req, res) => {
+                    try{
+                        let location = req.params.location;
+                        
+                            
+                            const getLegalHelp = await Legalhelps.find({location:location})
+                            res.status(200).send(getLegalHelp)
+                            console.log(getLegalHelp)
+                                          
+                       }catch(err){
+                           console.log(err)
+                           res.status(500).send({message:"Error while getting legal help "})
+                       }
+                };
+
+                exports.getAmbulance = async (req, res) => {
+                    try{
+                        let location = req.params.location;
+                        
+                            
+                            const getambulance = await Ambulances.find({location:location})
+                            res.status(200).send(getambulance)
+                            console.log(getambulance)
+                                          
+                       }catch(err){
+                           console.log(err)
+                           res.status(500).send({message:"Error while getting ambulances "})
+                       }
+                };
+
+                exports.getFirstaid = async (req, res) => {
+                    try{
+                        let location = req.params.location;
+                        
+                            
+                            const getfirstaid = await Firstaids.find({location:location})
+                            res.status(200).send(getfirstaid)
+                            console.log(getfirstaid)
+                                          
+                       }catch(err){
+                           console.log(err)
+                           res.status(500).send({message:"Error while getting firstaid "})
+                       }
+                };
+                
