@@ -1,8 +1,8 @@
 const nodemailer = require("nodemailer"); 
 const hbs = require('nodemailer-express-handlebars')
 let responseGot = {}
-const dotenv=require('dotenv');
-dotenv.config();
+// const dotenv=require('dotenv');
+// dotenv.config();
 
 exports.emailUtility= async (emailFrom, emailTo, emailSubject,  emailLink, emailLink2, text  ) =>{
    
@@ -15,8 +15,8 @@ exports.emailUtility= async (emailFrom, emailTo, emailSubject,  emailLink, email
             service: 'gmail',
         auth: {
             // should be replaced with real sender's account
-            user: process.env.emaillUser,
-            pass: process.env.emailPassword        
+            user: 'emaillUser',
+            pass: 'emailPassword'        
         },
         });
   const handlebarsOptions= {
