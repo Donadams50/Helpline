@@ -4,43 +4,34 @@ const firstaids = db.firstaids
 const Legalhelps = db.legalhelps
 const Ambulances = db.ambulances
 
-exports.create = async(req, res) => {
+exports.addSecurity = async(req, res) => {
     console.log(req.body)
-    // let {myrefCode} = req.query;
-    const {   email} = req.body;
+   
+    const {   name, phone, location} = req.body;
     
-    if ( email ){
-        if ( email===""  ){
+    if ( name && phone && location ){
+        if ( name==="" || phone ===  "" || location === "" ){
             res.status(400).send({
                 message:"Incorrect entry format"
             });
         }else{
-      // console.log(req.file)
-      // console.log( JSON.stringify( req.file.url ) ) 
+     
           
-            const sendmails = new Sendmails({
-                email: req.body.email,
-                name: req.body.name
+            const securitys = new Securitys({
+                phone: req.body.phone,
+                name: req.body.name,
+                location: req.body.location
   
           
               });
     
          
             try{
-            //    const emailFrom = 'Ahiajara Skin care    <noreply@Ahiajara.com>';
-            //       const subject = 'New order alert';                      
-            //       const hostUrl = "ahiajara.netlify.app/dashboard"
-            //        const hostUrl2 = "https://ahiajara.netlify.app/dashboard" 
-            //     const admin = "Admin"
-            //       const   text = "An new order from "+req.user.firstName+" "+req.user.lastName+" has been placed, Login to the dashboard to view" 
-            //      const emailTo = 'tomiczilla@gmail.com'
-            //      const link = `${hostUrl}`;
-            //        const link2 = `${hostUrl2}`;
-            //        processEmail(emailFrom, emailTo, subject, link, link2, text, admin);
+           
               
                  
-                  const savemail = await  sendmails.save()
-                  console.log(savemail)
+                  const savesecurity = await  securitys.save()
+                  console.log(savesecurity)
                  res.status(201).send({message:"List saved succesfully"})
                 
          
@@ -48,7 +39,7 @@ exports.create = async(req, res) => {
                 
             }catch(err){
                 console.log(err)
-                res.status(500).send({message:"Error while making order "})
+                res.status(500).send({message:"Error while saving "})
             }
         }
     }else{
@@ -59,52 +50,3 @@ exports.create = async(req, res) => {
     };
 
 
-
-exports.sendMail = async (req, res) => {
-    console.log(req.body)
-    // let {myrefCode} = req.query;
-    const {   email} = req.body;
-    
-    if ( email ){
-        if ( email===""  ){
-            res.status(400).send({
-                message:"Incorrect entry format"
-            });
-        }else{
-    
-    
-         
-            try{
-                for( var i = 0; i < req.body.email.length; i++){ 
-                    const emailFrom = 'Test mail    <noreply@test.com.ng>';
-                     const subject = req.body.subject;                      
-                     const hostUrl = "test.com.ng"
-                      const hostUrl2 = "https://test.com.ng" 
-                    //    const firstname = req.body.email[i].firstName
-                     const  text  = req.body.text
-                     const emailTo = req.body.email[i].email
-                     const link = `${hostUrl}`;
-                      const link2 = `${hostUrl2}`;
-                      processEmail(emailFrom, emailTo, subject, link, link2, text);
-                      console.log(req.body.email[i])
-                      }
-              
-                 
-                //   const savemail = await  sendmails.save()
-                //   console.log(savemail)
-                 res.status(201).send({message:" Sent succesfully"})
-                
-         
-                       
-                
-            }catch(err){
-                console.log(err)
-                res.status(500).send({message:"Error while making order "})
-            }
-        }
-    }else{
-        res.status(400).send({
-            message:"Incorrect entry format"
-        });
-    }
-    };

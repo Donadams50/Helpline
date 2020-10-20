@@ -1,11 +1,14 @@
 module.exports = app => {
-    const   Sendmail = require("./features.controller");
-    const jwtTokenUtils = require('../helpers/jwtTokenUtils')
-    const { verifyToken } = jwtTokenUtils;
+    const   features = require("./features.controller");
+    // const jwtTokenUtils = require('../helpers/jwtTokenUtils')
+    // const { verifyToken } = jwtTokenUtils;
     
  
         
  
-//   app.get("/orders/:status",  verifyToken,  isAdmin, order.findOrder)
+ app.post("/security",      features.addSecurity)
+//  app.post("/legalhelp",     features.addLegalHelp)
+//  app.post("/ambulance",     features.addAmbulance)
+//  app.post("/firstaid",      features.addFirstaid)
  
 }
