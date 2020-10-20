@@ -1,7 +1,7 @@
 const  jwt =require('jsonwebtoken');
-const dotenv=require('dotenv');
+// const dotenv=require('dotenv');
 
-dotenv.config();
+// dotenv.config();
 
 
 exports.signToken= (Id, userName,  firstName, lastName, Email)=> {
@@ -11,7 +11,7 @@ exports.signToken= (Id, userName,  firstName, lastName, Email)=> {
   }
 
   exports.verifyToken= (req, res, next)=> { 
-    const key = process.env.SECRET_KEY;
+    const key = 'yoursecret';
     const token = req.headers.authorization || req.params.token;
     if (!token) {
       res.status(403).json({ status: 403, error: 'No token provided' }); 

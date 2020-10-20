@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-const dotenv = require('dotenv');
-dotenv.config();
+// const dotenv = require('dotenv');
+// dotenv.config();
 
 const db = {};
 db.mongoose = mongoose;
-db.url = process.env.url;
+//db.url = process.env.url;
+db.url = 'mongodb+srv://donadams50:mathematics@ahiajara.szq4a.mongodb.net/exceptionPortal?retryWrites=true&w=majority';
 
 db.profiles = require("../members/members.model.js")(mongoose);
 db.securitys = require("../featues/security.model.js")(mongoose);
