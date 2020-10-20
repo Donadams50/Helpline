@@ -7,8 +7,8 @@ module.exports = app => {
         
  
  app.post("/security",      features.addSecurity)
-//  app.post("/legalhelp",     features.addLegalHelp)
-//  app.post("/ambulance",     features.addAmbulance)
-//  app.post("/firstaid",      features.addFirstaid)
+ app.post("/legalhelp",     features.addLegalHelp)
+ app.post("/ambulance",     features.addAmbulance)
+ app.post("/firstaid",      features.addFirstaid)
  
 }
