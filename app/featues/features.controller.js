@@ -192,7 +192,7 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getSecurity = async (req, res) => {
                     try{
-                        let location = req.params.state;
+                        let state = req.params.state;
                         
                             
                             const getsecurity = await Securitys.find({state:state})
@@ -207,7 +207,7 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getLegalHelp = async (req, res) => {
                     try{
-                        let location = req.params.state;
+                        let state = req.params.state;
                         
                             
                             const getLegalHelp = await Legalhelps.find({state:state})
@@ -222,7 +222,7 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getAmbulance = async (req, res) => {
                     try{
-                        let location = req.params.state;
+                        let state = req.params.state;
                         
                             
                             const getambulance = await Ambulances.find({state:state})
@@ -237,7 +237,7 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getFirstaid = async (req, res) => {
                     try{
-                        let location = req.params.state;
+                        let state = req.params.state;
                         
                             
                             const getfirstaid = await Firstaids.find({state:state})
