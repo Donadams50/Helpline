@@ -3,8 +3,8 @@ module.exports = mongoose => {
       {
         name: String,
         phone:String,
-        location: String
-        
+        location: String,
+        state: String
       },
       { timestamps: true }
     );

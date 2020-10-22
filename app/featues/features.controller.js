@@ -7,10 +7,10 @@ const Ambulances = db.ambulances
 exports.addSecurity = async(req, res) => {
     console.log(req.body)
    
-    const {   name, phone, location} = req.body;
+    const {   name, phone, location, state} = req.body;
     
-    if ( name && phone && location ){
-        if ( name==="" || phone ===  "" || location === "" ){
+    if ( name && phone && location && state){
+        if ( name==="" || phone ===  "" || location === "" || state === ""){
             res.status(400).send({
                 message:"Incorrect entry format"
             });
@@ -20,7 +20,8 @@ exports.addSecurity = async(req, res) => {
             const securitys = new Securitys({
                 phone: req.body.phone,
                 name: req.body.name,
-                location: req.body.location
+                location: req.body.location,
+                state: req.body.state
   
           
               });
@@ -52,10 +53,10 @@ exports.addSecurity = async(req, res) => {
     exports.addLegalHelp = async(req, res) => {
         console.log(req.body)
        
-        const {   name, phone, location} = req.body;
+        const {   name, phone, location, state} = req.body;
         
-        if ( name && phone && location ){
-            if ( name==="" || phone ===  "" || location === "" ){
+        if ( name && phone && location && state){
+            if ( name==="" || phone ===  "" || location === "" || state === "" ){
                 res.status(400).send({
                     message:"Incorrect entry format"
                 });
@@ -65,7 +66,8 @@ exports.addSecurity = async(req, res) => {
                 const legalhelps = new Legalhelps({
                     phone: req.body.phone,
                     name: req.body.name,
-                    location: req.body.location
+                    location: req.body.location,
+                    state: req.body.state
       
               
                   });
@@ -98,10 +100,10 @@ exports.addSecurity = async(req, res) => {
         exports.addAmbulance = async(req, res) => {
             console.log(req.body)
            
-            const {   name, phone, location} = req.body;
+            const {   name, phone, location, state} = req.body;
             
-            if ( name && phone && location ){
-                if ( name==="" || phone ===  "" || location === "" ){
+            if ( name && phone && location && state){
+                if ( name==="" || phone ===  "" || location === "" || state === "" ){
                     res.status(400).send({
                         message:"Incorrect entry format"
                     });
@@ -111,7 +113,8 @@ exports.addSecurity = async(req, res) => {
                     const ambulances = new Ambulances({
                         phone: req.body.phone,
                         name: req.body.name,
-                        location: req.body.location
+                        location: req.body.location,
+                        state: req.body.state
           
                   
                       });
@@ -144,10 +147,10 @@ exports.addSecurity = async(req, res) => {
             exports.addFirstaid = async(req, res) => {
                 console.log(req.body)
                
-                const {   name, phone, location} = req.body;
+                const {   name, phone, location , state} = req.body;
                 
-                if ( name && phone && location ){
-                    if ( name==="" || phone ===  "" || location === "" ){
+                if ( name && phone && location && state ){
+                    if ( name==="" || phone ===  "" || location === ""  || state === "" ){
                         res.status(400).send({
                             message:"Incorrect entry format"
                         });
@@ -157,7 +160,8 @@ exports.addSecurity = async(req, res) => {
                         const firstaids = new Firstaids({
                             phone: req.body.phone,
                             name: req.body.name,
-                            location: req.body.location
+                            location: req.body.location,
+                            state: req.body.state
               
                       
                           });
@@ -188,10 +192,10 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getSecurity = async (req, res) => {
                     try{
-                        let location = req.params.location;
+                        let location = req.params.state;
                         
                             
-                            const getsecurity = await Securitys.find({location:location})
+                            const getsecurity = await Securitys.find({state:state})
                             res.status(200).send(getsecurity)
                             console.log(getsecurity)
                                           
@@ -203,10 +207,10 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getLegalHelp = async (req, res) => {
                     try{
-                        let location = req.params.location;
+                        let location = req.params.state;
                         
                             
-                            const getLegalHelp = await Legalhelps.find({location:location})
+                            const getLegalHelp = await Legalhelps.find({state:state})
                             res.status(200).send(getLegalHelp)
                             console.log(getLegalHelp)
                                           
@@ -218,10 +222,10 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getAmbulance = async (req, res) => {
                     try{
-                        let location = req.params.location;
+                        let location = req.params.state;
                         
                             
-                            const getambulance = await Ambulances.find({location:location})
+                            const getambulance = await Ambulances.find({state:state})
                             res.status(200).send(getambulance)
                             console.log(getambulance)
                                           
@@ -233,10 +237,10 @@ exports.addSecurity = async(req, res) => {
 
                 exports.getFirstaid = async (req, res) => {
                     try{
-                        let location = req.params.location;
+                        let location = req.params.state;
                         
                             
-                            const getfirstaid = await Firstaids.find({location:location})
+                            const getfirstaid = await Firstaids.find({state:state})
                             res.status(200).send(getfirstaid)
                             console.log(getfirstaid)
                                           
